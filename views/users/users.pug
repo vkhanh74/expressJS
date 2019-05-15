@@ -1,0 +1,23 @@
+h1 User
+
+a(href="/users/create") Create a new student
+
+form(action="/users/search" method="GET")
+	label Search user
+	input#value(type="text" name="q")
+	button#get-value Search
+
+ul
+	each user in users
+		li
+			span= user.name
+			a(href='/users/' + user.id) View
+script.
+	var value = document.getElementById('get-value')
+	var inputValue = document.getElementById('value')
+	value.addEventListener('click', function() {
+		var input = inputValue.value;
+		sessionStorage.setItem("found", input);
+	})
+	nameInMemory = sessionStorage.getItem("found");
+	inputValue.value = nameInMemory
