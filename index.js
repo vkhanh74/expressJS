@@ -3,14 +3,9 @@ var bodyParser = require('body-parser');
 
 var userRoutes = require('./routes/user.route')
 
+
 const app = express()
 const port = 3000
-
-
-
-
-
-
 
 // Khoi tao thu muc goc cua app
 app.set('view engine', 'pug')
@@ -20,6 +15,7 @@ app.set('views', './views')
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
+app.use(express.static('public'))
 
 app.get('/', function(req, res){
 	return res.render('index', {

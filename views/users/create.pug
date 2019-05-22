@@ -1,6 +1,20 @@
-h1 Create new student
+extends ../layout/layout.pug
 
-form(action="/users/create" method="POST")
-	label(for="name") Name
-	input(type="text" name="name")
-	button Create
+block content
+	h1 Create new student
+
+	if errors
+		each error in errors
+			.alert.alert-danger= error 
+			//Lấy giá trị lỗi trong mảng error ghi vào class alert
+
+
+	form(action="/users/create" method="POST")
+		.form-group
+			label(for="name") Name
+			input.form-control(type="text" name="name" id="name" value=values ? values.name : "") 
+			// Kiểm trả nếu values có giá trị thì trả về value vừa nhập còn không thì trả về rỗng
+		.form-group
+			label(for="phone") Telephone
+			input.form-control(type="number" name="phone" id="phone" value=values ? values.phone : "")
+		button.btn.btn-success Create

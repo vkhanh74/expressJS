@@ -1,0 +1,26 @@
+head
+	link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+	link(rel="stylesheet", href="/css/custom.css")
+body
+	.container-fluid
+		nav.navbar.navbar-expand-lg
+			a.logo(href='')
+				img(src="https://school.coders.tokyo/static/media/logo@2x.72516b60.png", alt="")
+			button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+				span.navbar-toggler-icon
+			#navbarSupportedContent.collapse.navbar-collapse
+				ul.navbar-nav.mx-auto
+					
+					li.nav-item
+						a.nav-link(href='/') Home
+					li.nav-item.active
+						a.nav-link(href='/users/create')
+							| Create a new student
+							span.sr-only (current)
+					li.nav-item
+						a.nav-link(href='/users') View users
+				form.form-inline.my-2.my-lg-0(action="/users/search" method="GET")
+					input#value.form-control.mr-sm-2(type='text', placeholder='Search for user', aria-label='Search', name="q")
+					button#get-value.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+	.container
+		block content
