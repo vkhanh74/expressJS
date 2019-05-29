@@ -32,20 +32,8 @@ module.exports.view = function(req,res){ //Route parameter (Có 1 get request g
 
 module.exports.postCreate = function(req, res){
 	req.body.id = shortid.generate();
-	var errors = []; // Tạo 1 emty array để lưu lỗi vào trong
-	if(!req.body.name) {
-		errors.push('Name is require')
-	} // Nếu input name rỗng thì lỗi sẽ được đẩy vào trong mảng errors
-	if(!req.body.phone) {
-		errors.push('Telephone is require')
-	} // Tương tự với phone
-	if(errors.length) {
-		res.render('users/create', {
-			errors: errors,
-			values: req.body
-		})
-		return;
-	} //Nếu mảng errors có giá trị thì render lại trang create. Trong đó tạo 1 oject chứa errors = mảng errors tạo ban đầu để dùng cho file pug
+	
+	
  
 	db.get('users').push(req.body).write() // Ghi du lieu vao db.json su dung lowdb
 	res.redirect('/users') //Xong khi ghi du lieu xong chuyen nguoi dung ve trang user

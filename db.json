@@ -6,7 +6,9 @@
     },
     {
       "name": "Khanh",
-      "id": "mLb77RtG-"
+      "id": "mLb77RtG-",
+      "email": "vkhanh74@gmail.com",
+      "password": "vkhanh99"
     },
     {
       "name": "Vu",
@@ -41,6 +43,11 @@
       "name": "Vinh",
       "phone": "032159233",
       "id": "xSR9ALLSm"
+    },
+    {
+      "name": "Tien",
+      "phone": "123131411",
+      "id": "ubi9oZZlV"
     }
   ]
 }
