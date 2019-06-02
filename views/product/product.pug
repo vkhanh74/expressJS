@@ -1,0 +1,31 @@
+extends ../layout/layout.pug
+block content
+	h1 Products
+	.row
+		each product in products
+			.col-3
+				.card.mb-3
+					img.card-img-top(src= product.image, alt='Product image')
+					.card-body
+						h5.card-title= product.name
+						p.card-text
+							span= product.description
+						a.btn.btn-primary(href='#') Go somewhere
+		- var n = 1;
+		- var p = pageNumber;
+		- var cP = currentPage;
+			.col-12
+				nav.pagination-wrapper.mx-auto(aria-label='Page navigation example')
+					ul.pagination
+						li.page-item
+							a.page-link(href='product?page=' + n) First
+						while n <= p
+							- var m = n++
+							if cP == m
+								li.page-item.active
+									a.page-link(href='product?page=' + m)= m
+							else
+								li.page-item
+									a.page-link(href='product?page=' + m)= m
+						li.page-item
+							a.page-link(href='product?page=' + p) Last

@@ -15,7 +15,7 @@ module.exports.search = function(req, res){
 	});
 	return res.render('users/users', {
 		users: matchedUser
-	})
+	}) 
 }
 
 module.exports.create = function(req, res){

@@ -3,9 +3,10 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser')
 
 var userRoute = require('./routes/user.route')
+var productRoute = require('./routes/product.route')
 var authRoute = require('./routes/auth.route')
-var authMiddleware = require('./middleware/auth.middleware')
 
+var authMiddleware = require('./middleware/auth.middleware')
 
 const app = express()
 const port = 3000
@@ -17,7 +18,7 @@ app.set('views', './views')
 // Khoi tao cho req.body
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-app.use(cookieParser())
+app.use(cookieParser('jdaijdj9031230'))
 
 app.use(express.static('public'))
 
@@ -28,6 +29,7 @@ app.get('/', function(req, res){
 })
 
 app.use('/users', authMiddleware.requireAuth, userRoute);
+app.use('/product', productRoute);
 app.use('/auth', authRoute);
 
 
