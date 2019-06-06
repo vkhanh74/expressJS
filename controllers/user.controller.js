@@ -32,9 +32,7 @@ module.exports.view = function(req,res){ //Route parameter (Có 1 get request g
 
 module.exports.postCreate = function(req, res){
 	req.body.id = shortid.generate();
-	
-	
- 
+ 	req.body.avatar = req.file.path.split('\\').slice(1).join('/');
 	db.get('users').push(req.body).write() // Ghi du lieu vao db.json su dung lowdb
 	res.redirect('/users') //Xong khi ghi du lieu xong chuyen nguoi dung ve trang user
 }

@@ -1,8 +1,10 @@
 const express = require('express');
+var multer  = require('multer');
 
 var controller = require('../controllers/user.controller')
 var validate = require('../validate/user.validate')
 var authMiddleware = require('../middleware/auth.middleware')
+var upload = multer({ dest: './public/upload/' })
 
 var router = express.Router()
 
@@ -23,7 +25,7 @@ router.get('/create', controller.create)
 router.get('/:id', controller.view)
 
 // Ghi dữ liệu vào database
-router.post('/create', validate.postCreate, controller.postCreate)
+router.post('/create', upload.single('avatar'), validate.postCreate, controller.postCreate)
 
 module.exports = router;
 

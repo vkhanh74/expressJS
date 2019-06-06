@@ -9,7 +9,7 @@ block content
 			//Lấy giá trị lỗi trong mảng error ghi vào class alert
 
 
-	form(action="/users/create" method="POST")
+	form(action="/users/create" method="POST" enctype="multipart/form-data")
 		.form-group
 			label(for="name") Name
 			input.form-control(type="text" name="name" id="name" value=values ? values.name : "") 
@@ -17,4 +17,7 @@ block content
 		.form-group
 			label(for="phone") Telephone
 			input.form-control(type="number" name="phone" id="phone" value=values ? values.phone : "")
+		.form-group
+			label(for="avatar") Avatar
+			input.form-control-file(type="file" name="avatar" id="avatar")
 		button.btn.btn-success Create
